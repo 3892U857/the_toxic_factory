@@ -4,9 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Odtwarzacz filmu</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        video {
+            width: 80%;
+            height: auto;
+        }
+    </style>
 </head>
 <body>
-    <video width="640" height="360" controls>
+    <video controls>
         <source src="film.mp4" type="video/mp4">
         Twoja przeglądarka nie obsługuje odtwarzacza filmów wideo.
     </video>
