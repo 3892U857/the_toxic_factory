@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Odtwarzacz filmu</title>
+    <title>Odtwarzacz filmów</title>
     <style>
         body, html {
             height: 100%;
@@ -11,18 +11,49 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            background-color: #8a2be2; /* Fioletowe tło */
+        }
+        
+        .video-container {
+            border-radius: 20px; /* Zaokrąglenie krawędzi */
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.8); /* Cień */
         }
         
         video {
-            width: 80%;
+            width: 100%;
             height: auto;
+            display: block;
+        }
+        
+        .video-selector {
+            text-align: center;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <video controls>
-        <source src="film.mp4" type="video/mp4">
-        Twoja przeglądarka nie obsługuje odtwarzacza filmów wideo.
-    </video>
+    <div class="video-container">
+        <video controls>
+            <source src="film.mp4" type="video/mp4">
+            Twoja przeglądarka nie obsługuje odtwarzacza filmów wideo.
+        </video>
+    </div>
+
+    <div class="video-selector">
+        <label for="movie-select">Wybierz inny film:</label>
+        <select id="movie-select" onchange="changeMovie(this)">
+            <option value="film.mp4">Film 1</option>
+            <option value="film2.mp4">Film 2</option>
+        </select>
+    </div>
+
+    <script>
+        function changeMovie(selectElement) {
+            var selectedMovie = selectElement.value;
+            var videoElement = document.querySelector('video');
+            videoElement.src = selectedMovie;
+        }
+    </script>
 </body>
 </html>
